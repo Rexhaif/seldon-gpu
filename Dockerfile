@@ -21,7 +21,7 @@ WORKDIR /microservice
 COPY ./s2i/bin/ /s2i/bin
 
 # keep install of seldon-core after the COPY to force re-build of layer
-RUN pip3 install tensorflow-gpu==$TF_VERSION
+RUN pip3 install tensorflow-gpu=="$TF_VERSION"
 RUN pip3 install seldon-core
 RUN if [[ -n "$TORCH_VERSION" ]] ; then pip3 install torch==$TORCH_VERSION ; else echo "No pytorch installed" ; fi
 
